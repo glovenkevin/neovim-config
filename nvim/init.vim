@@ -20,6 +20,10 @@ Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
+" Tabline Icon and functionality
+Plug 'kyazdani42/nvim-web-devicons' 
+Plug 'romgrk/barbar.nvim'
+
 "> file searching vsocde like
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -96,6 +100,20 @@ colorscheme onedark
 :inoremap ii <Esc>
 :inoremap jj <Esc>
 
+" Coc Config
+set nobackup
+set nowritebackup
+set updatetime=300
+set signcolumn=yes
+
+inoremap <silent><expr> <C-space> coc#refresh()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent> ,s <C-r>=CocActionAsync('showSignatureHelp')<CR>
+
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
 " Fzf config
 nnoremap <C-p> :FZF<Cr>
 let $FZF_DEFAULT_COMMAND = 'find . \( -name node_modules -o -name mysql-data -o -name vendor -o -name .git \) -prune -o -print'
+
