@@ -1,4 +1,5 @@
 set encoding=UTF-8
+set clipboard=unnamedplus
 
 :set number relativenumber
 :set autoindent
@@ -12,15 +13,21 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0#
 
 call plug#begin()
 
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 
+"> file searching vsocde like
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 "> Theme config
 Plug 'joshdick/onedark.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 "> go
@@ -31,28 +38,33 @@ Plug 'https://github.com/sirver/UltiSnips'
 
 call plug#end()
 
+" NerdTree Shortcut
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+
+" Commentary Shortcut
+nnoremap <leader>\ :Commentary<CR>
+autocmd FileType conf,sh,text setlocal commentstring=#\ %s
+autocmd FileType vue,ts,tsx setlocal commentstring=//\ %s
 
 " Start NERDTree and put the cursor back to the window.
-autocmd VimEnter * NERDTree | wincmd p
-
-nmap <F8> :TagbarToggle<CR>
+" autocmd VimEnter * NERDTree | wincmd p
 
 :set completeopt-=preview " For No Previews
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 let NERDTreeShowHidden=1
+let g:NERDTreeIgnore=['^node_modules$']
 
 " air-line
 let g:airline_powerline_fonts = 1
-
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " airline symbols
 let g:airline_left_sep = ''
@@ -69,8 +81,21 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_text_changed = 'never'
 
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
+" Color Scheme
+if (has("termguicolors"))
+	set termguicolors
+endif
 syntax on
 colorscheme onedark
+
+" Insert Mode Shortcut
+:inoremap ii <Esc>
+:inoremap jj <Esc>
+
+" Fzf config
+nnoremap <C-p> :FZF<Cr>
+let $FZF_DEFAULT_COMMAND = 'find . \( -name node_modules -o -name mysql-data -o -name vendor -o -name .git \) -prune -o -print'
