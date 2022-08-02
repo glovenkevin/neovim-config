@@ -18,11 +18,14 @@ Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Debugging purpose
+Plug 'mfussenegger/nvim-dap'	" Neovim debug adapter 
+Plug 'puremourning/vimspector'	" UI/UX for debugger 
 
 " Tabline Icon and functionality
 Plug 'kyazdani42/nvim-web-devicons' 
-Plug 'romgrk/barbar.nvim'
 
 "> file searching vsocde like
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -67,7 +70,7 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1 
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " airline symbols
@@ -116,4 +119,45 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 " Fzf config
 nnoremap <C-p> :FZF<Cr>
 let $FZF_DEFAULT_COMMAND = 'find . \( -name node_modules -o -name mysql-data -o -name vendor -o -name .git \) -prune -o -print'
+
+" Vimspecotr for debugging 
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'vscode-go' ]
+
+nmap <leader>vl :call vimspector#Launch()<CR>
+nmap <leader>vr :VimspectorReset<CR>
+nmap <leader>vo :VimspectorShowOutput
+
+sign define vimspectorBP text=●         texthl=WarningMsg
+sign define vimspectorBPCond text=◼     texthl=WarningMsg
+sign define vimspectorBPDisabled text=○ texthl=LineNr
+sign define vimspectorPC text=▶         texthl=MatchParen
+
+function! s:SetUpUI() abort
+  call win_gotoid( g:vimspector_session_windows.output )
+  q
+  call win_gotoid( g:vimspector_session_windows.watches )
+  q
+
+  call win_gotoid( g:vimspector_session_windows.variables )
+  30wincmd _
+  30wincmd |
+
+  call win_gotoid( g:vimspector_session_windows.code )
+  nunmenu WinBar
+  nnoremenu WinBar.■\ Stop :call vimspector#Stop()<CR>
+  nnoremenu WinBar.▶\ Continue :call vimspector#Continue()<CR>
+  nnoremenu WinBar.▷\ Pause :call vimspector#Pause()<CR>
+  nnoremenu WinBar.↷\ Next :call vimspector#StepOver()<CR>
+  nnoremenu WinBar.→\ Step :call vimspector#StepInto()<CR>
+  nnoremenu WinBar.←\ Finish :call vimspector#StepOut()<CR>
+  nnoremenu WinBar.⟲: :call vimspector#Restart()<CR>
+  nnoremenu WinBar.✕ :call vimspector#Reset()<CR>
+
+endfunction
+
+augroup VimspectorCustom
+  autocmd!
+  autocmd User VimspectorUICreated call s:SetUpUI()
+augroup END
 
