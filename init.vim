@@ -161,3 +161,5 @@ augroup VimspectorCustom
   autocmd User VimspectorUICreated call s:SetUpUI()
 augroup END
 
+" Lua config
+lua require('config')
