@@ -21,7 +21,6 @@ call plug#begin()
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Tabline Icon and functionality
@@ -39,16 +38,14 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 "> go
-Plug 'https://github.com/fatih/vim-go' 
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/sirver/UltiSnips'
-"> End of GO
-"
+
 "> React TS
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
-"> End of React
 
 call plug#end()
 
@@ -110,5 +107,5 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 nnoremap <C-p> :FZF<Cr>
 let $FZF_DEFAULT_COMMAND = 'find . \( -name pb -o -name node_modules -o -name mysql-data -o -name vendor -o -name .git \) -prune -o -print'
 
-" Lua config
-" lua require('config')
+" Import lua config
+lua require('config')
