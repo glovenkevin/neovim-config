@@ -17,6 +17,8 @@ o.smarttab		= true
 o.backup        = false				-- some language server has trouble with it
 o.writebackup   = false				-- some language server has problem with it
 o.updatetime	= 250				-- frequency update
+o.syntax		= 'on'
+o.signcolumn	= 'yes:1'
 
 -- window options
 wo.number		= true
@@ -35,6 +37,7 @@ vim.opt.listchars = {
     eol = "↴",
     space = " ",
 }
+vim.opt.termguicolors = true
 
 -- global
 vim.g.node_host_prog				= '/usr/local/bin/neovim-node-host'
@@ -51,5 +54,4 @@ vim.g.NERDTreeGitStatusUseNerdFonts	= 1
 
 
 -- Env
-vim.env.PATH				= vim.env.PATH .. ':/Users/waresix/.nvm/versions/node/v16.14.0/bin'
 vim.env.FZF_DEFAULT_COMMAND	= 'find . ( -name pb -o -name node_modules -o -name mysql-data -o -name vendor -o -name .git ) -prune -o -print'

@@ -1,3 +1,6 @@
+let $PATH = '/Users/waresix/.nvm/versions/node/v16.14.0/bin:' . $PATH
+
+
 call plug#begin()
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw
@@ -33,20 +36,7 @@ Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
 call plug#end()
 
-" Color Scheme
-set termguicolors
-syntax on
 colorscheme onedark
-
-set signcolumn=yes
-
-inoremap <silent><expr> <C-space> coc#refresh()
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent> ,s <C-r>=CocActionAsync('showSignatureHelp')<CR>
-
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-
 lua << EOF
 	require('config')
 	require('keymap')
