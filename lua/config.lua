@@ -62,12 +62,15 @@ vim.g.ale_lint_on_text_changed		= 'never'
 
 vim.g.NERDTreeDirArrowExpandable	= "+"
 vim.g.NERDTreeDirArrowCollapsible	= "~"
-vim.g.NERDTreeIgnore				= "^node_modules$"
+-- vim.g.NERDTreeIgnore				= "^node_modules$"
 vim.g.NERDTreeGitStatusUseNerdFonts	= 1
+vim.g.NERDTreeShowHidden			= 1
+vim.g.NERDTreeFileLines				= 1
 
 -- golang 
 vim.g.go_diagnostics_enabled	= 0
 vim.g.go_metalinter_enabled		= {}
 
--- Env
-vim.env.FZF_DEFAULT_COMMAND	= 'find . ( -name pb -o -name node_modules -o -name mysql-data -o -name vendor -o -name .git ) -prune -o -print'
+-- fzf
+vim.env.FZF_DEFAULT_COMMAND = 'rg --files'
+

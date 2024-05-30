@@ -40,5 +40,4 @@ colorscheme onedark
 lua << EOF
 	require('config')
 	require('keymap')
-
 EOF

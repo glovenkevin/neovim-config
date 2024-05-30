@@ -1,9 +1,10 @@
 -- daily
 vim.keymap.set('i', 'ii', '<Esc>', {noremap = true})
 vim.keymap.set('n', '<leader>\\', ':Commentary<CR>')
+vim.keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>')
 
 -- Fzf
-vim.keymap.set('n', '<C-p>', ':FZF<Cr>', {noremap = true})
+vim.keymap.set('n', '<C-p>', ':Files<Cr>', {noremap = true})
 
 -- coc 
 local keyset = vim.keymap.set
@@ -29,7 +30,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
-
 
 -- commentary  
 vim.cmd "autocmd FileType conf,sh,text setlocal commentstring=#\\ %s"
