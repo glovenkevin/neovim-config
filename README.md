@@ -6,12 +6,12 @@ This is my private neovim config for development. Feel free to pick this up.
 
 - NerdTree
 - vim-go
-- coc 
+- coc
 - vim-plug : As the plugin manager
 
 ## Themes
 
-- One-dark pro 
+- One-dark pro
 - Cascadia-code NerdFont
 
 ## Incoming changes
@@ -24,22 +24,25 @@ This is my private neovim config for development. Feel free to pick this up.
 2. Install `vim-plug` from [this](https://github.com/junegunn/vim-plug)
 3. Then do the plug install command by `:PlugInstall`
 4. Last but not least is that dont't forget to install `nodejs` and `neovim` with `python3`
+
 ```bash
-	brew install nodejs 
+	brew install nodejs
 	pip3 install neovim
 ```
-5. Run this command inside the neovim 
+
+5. Run this command inside the neovim
+
 ```
-    :CocInstall coc-json coc-go coc-html coc-css | q
+    :CocInstall coc-json coc-go \
+        coc-html coc-css \
+        coc-tsserver coc-eslint coc-prettier \
+        | q
 ```
-> This are the Coc dependency autocompletion
-6. Run this command for installing `vim-go` binary support
+
+> This are the Coc dependency autocompletion 6. Run this command for installing `vim-go` binary support
+
 ```
     :GoInstallBinaries
 ```
 
-
 ## Helper
-
-
-
