@@ -3,6 +3,7 @@ local wo = vim.wo
 local bo = vim.bo
 
 -- global options 
+o.wrap			= true
 o.clipboard		= 'unnamedplus'		-- use system clipboard
 o.pumheight		= 15
 o.pumblend		= 20
@@ -16,9 +17,18 @@ o.tabstop		= 4
 o.smarttab		= true
 o.backup        = false				-- some language server has trouble with it
 o.writebackup   = false				-- some language server has problem with it
-o.updatetime	= 250				-- frequency update
 o.syntax		= 'on'
-o.signcolumn	= 'yes:1'
+
+--   A list of file patterns to ignore when performing expansion and completion.
+o.wildignorecase	= true
+o.wildignore		= o.wildignore .. '*.so,/min/*'
+o.wildignore		= o.wildignore .. '.git,.hg,.svn,.stversions,*.pyc,*.spl,*.o,*.out,*~,%*'
+o.wildignore		= o.wildignore .. '*.jpg,*.jpeg,*.png,*.gif,*.log,**/tmp/**'
+o.wildignore		= o.wildignore .. '**/node_modules/**,**/bower_modules/**,*/.sass-cache/*'
+o.wildignore		= o.wildignore .. '__pycache__,*.egg-info'
+o.wildignore		= o.wildignore .. '*.out,*.obj,*.gem,*.pyc,*DS_Store*'
+o.wildignore		= o.wildignore .. '*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz'
+o.wildignore		= o.wildignore .. '*.swp,*~,._*,*/vendor/cache/*'
 
 -- window options
 wo.number		= true
@@ -37,7 +47,10 @@ vim.opt.listchars = {
     eol = "↴",
     space = " ",
 }
-vim.opt.termguicolors = true
+vim.opt.termguicolors	= true
+vim.opt.signcolumn		= 'yes'
+vim.opt.updatetime		= 300
+vim.opt.cmdheight		= 2
 
 -- global
 vim.g.node_host_prog				= '/usr/local/bin/neovim-node-host'
@@ -52,6 +65,9 @@ vim.g.NERDTreeDirArrowCollapsible	= "~"
 vim.g.NERDTreeIgnore				= "^node_modules$"
 vim.g.NERDTreeGitStatusUseNerdFonts	= 1
 
+-- golang 
+vim.g.go_diagnostics_enabled	= 0
+vim.g.go_metalinter_enabled		= {}
 
 -- Env
 vim.env.FZF_DEFAULT_COMMAND	= 'find . ( -name pb -o -name node_modules -o -name mysql-data -o -name vendor -o -name .git ) -prune -o -print'
