@@ -50,7 +50,7 @@ vim.opt.listchars = {
 vim.opt.termguicolors	= true
 vim.opt.signcolumn		= 'yes'
 vim.opt.updatetime		= 300
-vim.opt.cmdheight		= 2
+vim.opt.cmdheight		= 5
 
 -- global
 vim.g.node_host_prog				= '/usr/local/bin/neovim-node-host'

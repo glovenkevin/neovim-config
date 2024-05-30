@@ -3,7 +3,6 @@ let $PATH = '/Users/waresix/.nvm/versions/node/v16.14.0/bin:' . $PATH
 
 call plug#begin()
 
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -26,13 +25,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
-"> LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-
-"> Ts/React
-Plug 'MunifTanjim/prettier.nvim'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+"> debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
@@ -40,4 +38,8 @@ colorscheme onedark
 lua << EOF
 	require('config')
 	require('keymap')
+	require('setup')
+	require('plugin')
+	require('command')
 EOF
+

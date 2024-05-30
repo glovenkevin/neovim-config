@@ -1,1 +1,2 @@
-require('plugin.coq')
+require('plugin.dap');
+require('plugin.dap-ui');
