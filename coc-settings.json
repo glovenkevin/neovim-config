@@ -16,5 +16,8 @@
   "eslint.packageManager": "yarn",
   "eslint.format.enable": true,
   "typescript.preferences.quoteStyle": "single",
-  "javascript.preferences.quoteStyle": "single"
+  "javascript.preferences.quoteStyle": "single",
+
+  "prettier.disableLanguages": ["json"],
+  "prettier.tabWidth": 2
 }
