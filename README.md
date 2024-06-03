@@ -36,6 +36,7 @@ This is my private neovim config for development. Feel free to pick this up.
     :CocInstall coc-json coc-go \
         coc-html coc-css \
         coc-tsserver coc-eslint coc-prettier \
+        coc-pairs \
         | q
 ```
 

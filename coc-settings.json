@@ -1,23 +1,32 @@
 {
-  "coc.preferences.formatOnSave": true,
+	"coc.preferences.formatOnSave": true,
 
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    }
-  },
-  "go.goplsOptions": {
-    "semanticTokens": true
-  },
+	"languageserver": {
+		"go": {
+			"command": "gopls",
+			"rootPatterns": [
+				"go.mod"
+			],
+			"trace.server": "verbose",
+			"filetypes": [
+				"go"
+			]
+		}
+	},
+	"go.goplsOptions": {
+		"semanticTokens": true
+	},
 
-  "eslint.packageManager": "yarn",
-  "eslint.format.enable": true,
-  "typescript.preferences.quoteStyle": "single",
-  "javascript.preferences.quoteStyle": "single",
+	"eslint.packageManager": "yarn",
+	"eslint.format.enable": true,
+	"typescript.preferences.quoteStyle": "single",
+	"javascript.preferences.quoteStyle": "single",
 
-  "prettier.disableLanguages": ["json"],
-  "prettier.tabWidth": 2
+	"prettier.disableLanguages": [
+		"json"
+	],
+	"prettier.tabWidth": 2,
+
+	"json.format.keepLines": true,
+	"json.format.enable": false
 }
