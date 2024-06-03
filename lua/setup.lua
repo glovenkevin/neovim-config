@@ -32,3 +32,5 @@ require("dapui").setup({
         size = 13
       } },
 })
+
+require('gitsigns').setup()

@@ -47,10 +47,11 @@ vim.opt.listchars = {
     eol = "↴",
     space = " ",
 }
-vim.opt.termguicolors	= true
 vim.opt.signcolumn		= 'yes'
 vim.opt.updatetime		= 300
 vim.opt.cmdheight		= 5
+vim.opt.termguicolors	= true
+vim.cmd.colorscheme 'onedark'
 
 -- global
 vim.g.node_host_prog				= '/usr/local/bin/neovim-node-host'
@@ -62,7 +63,6 @@ vim.g.ale_lint_on_text_changed		= 'never'
 
 vim.g.NERDTreeDirArrowExpandable	= "+"
 vim.g.NERDTreeDirArrowCollapsible	= "~"
--- vim.g.NERDTreeIgnore				= "^node_modules$"
 vim.g.NERDTreeGitStatusUseNerdFonts	= 1
 vim.g.NERDTreeShowHidden			= 1
 vim.g.NERDTreeFileLines				= 1
