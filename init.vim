@@ -6,7 +6,6 @@ Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 
 " Tabline Icon and functionality
-Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 "> file searching vsocde like
