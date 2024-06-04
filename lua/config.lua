@@ -49,7 +49,7 @@ vim.opt.listchars = {
 }
 vim.opt.signcolumn		= 'yes'
 vim.opt.updatetime		= 300
-vim.opt.cmdheight		= 5
+vim.opt.cmdheight		= 3
 vim.opt.termguicolors	= true
 vim.cmd.colorscheme 'onedark'
 
@@ -70,7 +70,4 @@ vim.g.NERDTreeFileLines				= 1
 -- golang 
 vim.g.go_diagnostics_enabled	= 0
 vim.g.go_metalinter_enabled		= {}
-
--- fzf
-vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-case'
 

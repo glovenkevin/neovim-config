@@ -6,6 +6,11 @@ require("mason-lspconfig").setup({
 		"golangci_lint_ls", "gopls"
 	}
 })
+require("mason-null-ls").setup({
+	ensure_installed = {
+		"prettier", "gofumpt"
+	}
+})
 
 local lsp = require("lspconfig")
 local on_attach = function (_, bufnr)
@@ -20,16 +25,8 @@ local on_attach = function (_, bufnr)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
 end
-
-lsp.lua_ls.setup {}
-lsp.jsonls.setup {}
-lsp.eslint.setup {}
-lsp.tsserver.setup {}
-lsp.quick_lint_js.setup {}
-lsp.gopls.setup {}
-lsp.golangci_lint_ls.setup {}
 
 local cmp = require("cmp")
 cmp.setup {
@@ -49,7 +46,7 @@ cmp.setup {
 
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local langservers = { 'tsserver', 'gopls' }
+local langservers = { 'tsserver', 'gopls', 'eslint' , 'golangci_lint_ls', 'jsonls', 'quick_lint_js' }
 for _, l in ipairs(langservers) do
 	lsp[l].setup {
 		capabilities = capabilities,
@@ -61,3 +58,14 @@ require("gitsigns").setup {
 	signcolumn = true,
 	current_line_blame = true,
 }
+
+require("nvim-treesitter.configs").setup {
+	ensure_installed = {
+		"lua", "go", "gomod", "gosum",
+		"javascript", "typescript", "tsx",
+		"proto"
+	}
+}
+
+require("telescope").setup()
+require("nvim-autopairs").setup()
