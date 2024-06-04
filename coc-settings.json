@@ -28,5 +28,14 @@
 	"prettier.tabWidth": 2,
 
 	"json.format.keepLines": true,
-	"json.format.enable": false
+	"json.format.enable": false,
+
+	"pairs.enableCharacters": [
+		"(",
+		"[",
+		"{",
+		"'",
+		"\"",
+		"`"
+	]
 }
