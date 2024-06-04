@@ -4,6 +4,7 @@ local keyset = vim.keymap.set
 keyset('i', 'ii', '<Esc>', {noremap = true})
 keyset('n', '<leader>\\', ':Commentary<CR>')
 keyset('n', '<C-t>', ':NERDTreeToggle<CR>')
+keyset('n', '<C-w>', ':BufferClose<CR>')
 
 -- Fzf
 keyset('n', '<C-p>', ':Files<Cr>', {noremap = true})
@@ -30,6 +31,10 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
+keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
+keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
+keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
 
 -- commentary  
 vim.cmd "autocmd FileType conf,sh,text setlocal commentstring=#\\ %s"
