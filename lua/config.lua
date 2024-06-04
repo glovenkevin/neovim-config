@@ -72,5 +72,5 @@ vim.g.go_diagnostics_enabled	= 0
 vim.g.go_metalinter_enabled		= {}
 
 -- fzf
-vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-case'
 
