@@ -11,6 +11,11 @@
 			"filetypes": [
 				"go"
 			]
+		},
+		"lua": {
+			"command": "/usr/local/bin/lua-language-server",
+			"filetypes": ["lua"],
+			"rootPatterns": [".git/"]
 		}
 	},
 	"go.goplsOptions": {

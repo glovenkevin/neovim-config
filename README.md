@@ -8,6 +8,7 @@ This is my private neovim config for development. Feel free to pick this up.
 - vim-go
 - coc
 - vim-plug : As the plugin manager
+- lua-language-server
 
 ## Themes
 
@@ -26,7 +27,7 @@ This is my private neovim config for development. Feel free to pick this up.
 4. Last but not least is that dont't forget to install `nodejs` and `neovim` with `python3`
 
 ```bash
-	brew install nodejs
+	brew install nodejs lua-language-server
 	pip3 install neovim
 ```
 
