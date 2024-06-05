@@ -9,8 +9,9 @@ Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'lewis6991/gitsigns.nvim'
 
 "> file searching vsocde like
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 
 "> Theme config
 Plug 'joshdick/onedark.vim'
@@ -34,8 +35,8 @@ call plug#end()
 
 lua << EOF
 	require('config')
-	require('keymap')
 	require('setup')
+	require('keymap')
 	require('plugin')
 	require('command')
 EOF

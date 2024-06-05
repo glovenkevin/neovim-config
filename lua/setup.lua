@@ -42,3 +42,20 @@ require("nvim-treesitter.configs").setup {
 		"proto"
 	}
 }
+
+require("telescope").setup {
+	defaults = {
+		mappings = {
+			i = {
+				["<esc>"] = require("telescope.actions").close
+			}
+		}
+	},
+	pickers = {
+		find_files = {
+			no_ignore = false,
+			hidden = true
+		}
+	}
+}
+require("telescope").load_extension("fzf")

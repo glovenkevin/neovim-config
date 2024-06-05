@@ -6,8 +6,9 @@ keyset('n', '<leader>\\', ':Commentary<CR>')
 keyset('n', '<C-t>', ':NERDTreeToggle<CR>')
 keyset('n', '<C-w>', ':BufferClose<CR>')
 
--- Fzf
-keyset('n', '<C-p>', ':Files<Cr>', { noremap = true })
+local builtin = require('telescope.builtin')
+keyset('n', '<C-p>', builtin.find_files, {})
+keyset('n', '<C-f>', builtin.live_grep, {})
 
 -- coc
 function _G.check_back_space()
