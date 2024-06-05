@@ -37,9 +37,10 @@ require('gitsigns').setup()
 
 require("nvim-treesitter.configs").setup {
 	ensure_installed = {
+		"gitignore",
 		"lua", "go", "gomod", "gosum",
-		"javascript", "typescript", "tsx",
-		"proto"
+		"javascript", "typescript", "tsx", "css",
+		"proto", "sql"
 	}
 }
 
