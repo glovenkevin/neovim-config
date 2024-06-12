@@ -32,6 +32,7 @@ o.wildignore          = o.wildignore .. '*.swp,*~,._*,*/vendor/cache/*'
 
 -- window options
 wo.number             = true
+wo.relativenumber     = false
 wo.breakindent        = true
 wo.foldcolumn         = '1'
 wo.foldenable         = true
