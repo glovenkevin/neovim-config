@@ -25,11 +25,8 @@ Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
 "> debugger
-Plug 'mfussenegger/nvim-dap'
-Plug 'leoluz/nvim-dap-go'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-neotest/nvim-nio'
-Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
