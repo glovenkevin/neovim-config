@@ -9,6 +9,7 @@ keyset('n', '<C-w>', ':BufferClose<CR>')
 -- File Search
 local tele = require("telescope.builtin")
 keyset('n', '<C-p>', tele.find_files, {noremap = true})
+keyset('n', '<C-f>', tele.live_grep, {noremap = true})
 keyset('n', '<leader>fg', tele.live_grep )
 
 -- commentary  
