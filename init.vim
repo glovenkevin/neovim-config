@@ -1,4 +1,4 @@
-let $PATH = '/Users/waresix/.nvm/versions/node/v16.14.0/bin:' . $PATH
+let $PATH = '/Users/waresix/.nvm/versions/node/v20.17.0/bin:' . $PATH
 
 call plug#begin()
 

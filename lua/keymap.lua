@@ -49,6 +49,7 @@ keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
 keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
 keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+-- Go back using <C-o>
 
 vim.api.nvim_create_augroup("CocGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
