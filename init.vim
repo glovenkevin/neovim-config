@@ -23,6 +23,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 "> file searching vsocde like
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 
 "> Theme config
