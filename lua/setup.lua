@@ -87,11 +87,21 @@ require("telescope").setup {
 	defaults = {
 		prompt_prefix = " ",
 		selection_caret = " ",
-	    path_display = { "smart" },
+	    path_display = { "truncate" },
+		color_devicons = true,
+		layout_strategy = 'flex',
 
 		file_ignore_patterns = {
 			'.git/', 'node_modules/', '.npm/', '*[Cc]ache/', '*-cache*', '.dropbox/',
 		},
+	},
+
+	picker = {
+		find_files = {
+			find_command = {
+				"rg", "--files", "--hidden", "--glob", "!**/.git/*"
+			}
+		}
 	},
 
 	extensions = {
