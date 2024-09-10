@@ -36,6 +36,21 @@ cmp.setup {
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+	  ["<Tab>"] = cmp.mapping(function(fallback) 
+		  if cmp.visible() then
+			  cmp.select_next_item()
+		  else 
+			  fallback()
+		  end
+	  end, { "i", "s"}),
+	  ["<S-Tab>"] = cmp.mapping(function(fallback) 
+		  if cmp.visible() then
+			  cmp.select_prev_item()
+		  else 
+			fallback()
+		  end 
+	  end, { "i", "s" })
     }),
 	sources = cmp.config.sources ({
 		{ name = 'nvim_lsp' },
@@ -67,5 +82,17 @@ require("nvim-treesitter.configs").setup {
 	}
 }
 
-require("telescope").setup()
+local action = require("telescope.actions")
+require("telescope").setup {
+	defaults = {
+		prompt_prefix = " ",
+		selection_caret = " ",
+	    path_display = { "smart" },
+
+		file_ignore_patterns = {
+			'.git/', 'node_modules/', '.npm/', '*[Cc]ache/', '*-cache*', '.dropbox/',
+		},
+	}
+}
+
 require("nvim-autopairs").setup()
