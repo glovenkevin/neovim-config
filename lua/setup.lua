@@ -2,7 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls", "jsonls",
-		"eslint", "tsserver", "quick_lint_js",
+		"eslint", "ts_ls", "quick_lint_js",
 		"golangci_lint_ls", "gopls"
 	}
 })
@@ -46,7 +46,7 @@ cmp.setup {
 
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local langservers = { 'tsserver', 'gopls', 'eslint' , 'golangci_lint_ls', 'jsonls', 'quick_lint_js' }
+local langservers = { 'ts_ls', 'gopls', 'eslint' , 'golangci_lint_ls', 'jsonls', 'quick_lint_js' }
 for _, l in ipairs(langservers) do
 	lsp[l].setup {
 		capabilities = capabilities,
